@@ -61,6 +61,11 @@
         margin-bottom: 50px
     }
 }
+@media only screen and (max-width : 581px) {
+    #introduction-container {
+        margin-top: 240px;
+    }
+}
 @media only screen and (max-width : 500px) {
     .intro-content {
         width: 80%;
