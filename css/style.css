@@ -1,0 +1,78 @@
+#introduction-container {
+    background-color: #000;
+    margin-top: 680px;
+    background-image: url('../images/bg-container.jpg');
+    background-position: top center; 
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    font-family: myFirstFont1;
+    overflow: hidden;
+    min-height: 600px
+}
+#introduction-container * {
+    color: #fff
+}
+.introText{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 100px;
+}
+.intro-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+.intro-content {
+    width: 49%;
+    margin-right: 1%;
+    float: left;
+    text-align: justify
+}
+.intro-content ul {
+    padding: 0
+}
+.intro-content ul li {
+    margin-bottom: 40px;
+    line-height: 150%
+}
+.intro-thumb {
+    width: 50%;
+    float: right;
+}
+.intro-thumb img {
+    width: 100%;
+}
+@media only screen and (max-width : 800px) {
+    .intro-container {
+        margin: 20px
+    }
+}
+@media only screen and (max-width : 650px) {
+    .intro-content {
+        width: 80%;
+        margin: auto;
+        float: none;
+        text-align: justify
+    }
+    .intro-thumb {
+        width: 50%;
+        float: none;
+        margin: auto;
+        margin-bottom: 50px
+    }
+}
+@media only screen and (max-width : 500px) {
+    .intro-content {
+        width: 80%;
+        margin: auto;
+        float: none;
+        text-align: justify
+    }
+    .intro-thumb {
+        width: 80%;
+        float: none;
+        margin: auto;
+        margin-bottom: 50px
+    }
+}
+
