@@ -95,6 +95,7 @@
     }
 }
 
+/*========================================*/
 body, html{
 			padding: 0px;
 			margin: 0px;
@@ -103,11 +104,11 @@ body, html{
 
 		@font-face {
 		    font-family: myFirstFont;
-		    src: url(./fonts/Ubuntu-B.ttf);
+		    src: url(../fonts/Ubuntu-B.ttf);
 		}
 		@font-face {
 		    font-family: myFirstFont1;
-		    src: url(./fonts/Ubuntu-M.ttf);
+		    src: url(../fonts/Ubuntu-M.ttf);
 		}
 		#kis{
 			height: 100px;
