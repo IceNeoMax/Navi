@@ -42,6 +42,18 @@
 .intro-thumb img {
     width: 100%;
 }
+
+.intro-thumb-2 {
+    margin-top: 50px;
+    float: left;
+    clear: both;
+}
+.intro-content-2 {
+    width: 46%;
+    margin-left: 2%;
+    margin-top: 50px;
+    float: right;
+}
 @media only screen and (max-width : 800px) {
     .intro-container {
         margin: 20px
