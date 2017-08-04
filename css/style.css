@@ -23,10 +23,12 @@
     margin: auto;
 }
 .intro-content {
+    margin-top: 50px;
     width: 49%;
     margin-right: 1%;
     float: left;
-    text-align: justify
+    text-align: justify;
+    line-height: 150%
 }
 .intro-content ul {
     padding: 0
@@ -36,22 +38,22 @@
     line-height: 150%
 }
 .intro-thumb {
+    margin-top: 50px;
     width: 50%;
     float: right;
+    clear: both;
 }
 .intro-thumb img {
     width: 100%;
 }
 
 .intro-thumb-2 {
-    margin-top: 50px;
     float: left;
     clear: both;
 }
 .intro-content-2 {
     width: 46%;
     margin-left: 2%;
-    margin-top: 50px;
     float: right;
 }
 @media only screen and (max-width : 800px) {
