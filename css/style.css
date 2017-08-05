@@ -409,6 +409,7 @@ body, html{
 		}
 		#loginBtn > span{
 			font-family: myFirstFont;
+			    color: white;
 		}
 		#loginBtn > img{
 			width: 14px;
@@ -612,7 +613,8 @@ body, html{
 			    height: 13.5px;
 			}
 			#loginBtn > span{
-				 font-size: 13px;
+				font-size: 13px;
+				color: white;
 			}
 			#upplerFlags {
 			    position: relative;
@@ -676,20 +678,6 @@ body, html{
 			    top: -10px;
 			    float: left;		
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			.commonBtns{
 				display: none;
@@ -966,18 +954,5 @@ body, html{
 			  top: 39px;
 			  left: 8px;
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
 							
 		}
