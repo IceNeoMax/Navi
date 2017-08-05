@@ -118,7 +118,7 @@ body, html{
 		#slideShow{
 			width: 100%;
 			height: 600px;
-			background-color: pink;
+			background-color: black;
 			position: absolute;
 			top: 0px;
 			z-index: 1;
