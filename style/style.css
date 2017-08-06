@@ -51,6 +51,8 @@ a {
     border-top: solid 0.5px #616161;
     padding: 20px
 }
+
+
 header {
     position: fixed;
     z-index: 999;
@@ -61,7 +63,7 @@ header {
     background-color: rgba(33,33,33,0.57);
 }
 .header-container {
-    max-width: 1195px;
+    max-width: 1295px;
     margin: auto;
 }
 header ul {
@@ -97,6 +99,14 @@ header a {
     padding-top: 10px;
     overflow: hidden;
 }
+.lang-container button span {
+    display: block;
+    float: left;
+    margin-top: 2px;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
 .lang-container .lang {
     display: block;
     float: left;
@@ -109,20 +119,52 @@ header a {
     height: 100%;
 }
 
+
+#lang-drop-box {
+    clear:both; 
+    height: 0;
+    max-height: 320px;
+    overflow-y: scroll;
+    background-color: rgba(33,33,33,0.57); 
+    border-radius: 1px;
+    width: 50%; float: right; 
+    margin-right: 5px;
+    transition: 0.5s;
+}
+/* #lang-drop-box::-webkit-scrollbar { 
+    display: none; 
+} */
+
+#lang-drop-box a {
+    display: block;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 30px;
+    height: 22px;
+}
+#lang-drop-box a img {
+    width: 100%;
+    height: 100%;
+}
+
 .login {
     clear: both;
     padding-top: 5px;
+    float: left;
 }
 .login a {
     display: block;
     text-align: center;
+    font-size: 14px;
 }
 .login a span {
     display: block;
     float: left;
-    margin-top: 2px;
     margin-left: 15px;
+    font-weight: 100;
 }
+
 
 .menu-active {
     color: #3244A7
@@ -140,37 +182,44 @@ header a {
 }
 .banner .banner-logo {
     display: block;
-    height: 230px;
+    height: 70%;
     margin: auto; 
 }
 
 /* reponsive  */
-@media only screen and (max-width: 1180px) {
-    header ul li {
-        font-size: 1.1rem;
-    }
-}
-@media only screen and (max-width: 1120px) {
+@media only screen and (max-width: 1380px) {
     header ul li {
         font-size: 1rem;
     }
 }
-@media only screen and (max-width: 1059px) {
+@media only screen and (max-width: 1147px) {
+    header ul li {
+        font-size: 0.9rem;
+    }
+}
+@media only screen and (max-width: 1088px) {
     header ul {
         width: 750px;
         padding-top: 5px;
     }
 }
-@media only screen and (max-width: 954px) {
+@media only screen and (max-width: 1042px) {
+    header ul {
+        width: 700px
+    }
+}
+@media only screen and (max-width: 992px) {
+    header ul {
+        width: 600px
+    }
+}
+@media only screen and (max-width: 892px) {
     header ul {
         width: 580px
     }
-    .banner .banner-logo {
-        height: 200px;
-    }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 873px) {
    .show-menu-button {
         display: block;
         float: left;
@@ -182,14 +231,14 @@ header a {
         display: none;
     }
     .banner .banner-logo {
-        height: 180px;
+        height: 50%;
     }
 }
 
 
 @media only screen and (max-width: 620px) {
     .banner .banner-logo {
-        height: 150px;
+        height: 40%;
     }
 }
 
