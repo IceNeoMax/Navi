@@ -40,6 +40,9 @@ a {
     transition: 0.5s;
     display: none;
 }
+#side-bar::-webkit-scrollbar { 
+    display: none; 
+}
 #side-bar ul {
     list-style: none;
     padding: 0
