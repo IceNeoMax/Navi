@@ -20,7 +20,7 @@ button:focus {
 }
 a {
     text-decoration: none;
-    color: #212121
+    color: #fff
 }
 
 
@@ -32,7 +32,7 @@ a {
     left: -260px;
     width: 250px;
     height: 100vh;
-    background-color: #eee;
+    background-color: rgba(33,33,33,0.8);
     -webkit-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
     -moz-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
     box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
@@ -45,7 +45,7 @@ a {
     padding: 0
 }
 #side-bar ul li {
-    border-top: solid 0.5px #bdbdbd;
+    border-top: solid 0.5px #616161;
     padding: 20px
 }
 header {
@@ -141,7 +141,6 @@ header a {
     margin: auto; 
 }
 
-
 /* reponsive  */
 @media only screen and (max-width: 1180px) {
     header ul li {
@@ -188,5 +187,96 @@ header a {
 @media only screen and (max-width: 620px) {
     .banner .banner-logo {
         height: 150px;
+    }
+}
+
+/* intro  */
+#introduction-container {
+    background-color: #000;
+    background-image: url('../images/background/intro-bg.jpg');
+    background-position: top center; 
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    overflow: hidden;
+    min-height: 600px
+}
+#introduction-container * {
+    color: #fff
+}
+.intro-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    font-weight: 100;
+}
+.intro-content {
+    margin-top: 50px;
+    width: 49%;
+    margin-right: 1%;
+    float: left;
+    text-align: justify;
+    line-height: 150%
+}
+.intro-content ul {
+    padding: 0
+}
+.intro-content ul li {
+    margin-bottom: 40px;
+    line-height: 150%
+}
+.intro-thumb {
+    margin-top: 50px;
+    width: 50%;
+    float: right;
+    clear: both;
+}
+.intro-thumb img {
+    width: 100%;
+}
+
+.intro-thumb-2 {
+    float: left;
+    clear: both;
+}
+.intro-content-2 {
+    width: 46%;
+    margin-left: 2%;
+    float: right;
+}
+@media only screen and (max-width : 825px) {
+    .intro-container {
+        width: 90%;
+    }
+}
+@media only screen and (max-width : 650px) {
+    .intro-content {
+        width: 90%;
+        float: none;
+        text-align: justify
+    }
+    .intro-thumb {
+        width: 50%;
+        float: none;
+        margin: auto;
+        margin-bottom: 50px
+    }
+}
+@media only screen and (max-width : 581px) {
+    #introduction-container {
+        margin-top: 240px;
+    }
+}
+@media only screen and (max-width : 500px) {
+    .intro-content {
+        width: 80%;
+        margin: auto;
+        float: none;
+        text-align: justify
+    }
+    .intro-thumb {
+        width: 80%;
+        float: none;
+        margin: auto;
+        margin-bottom: 50px
     }
 }
