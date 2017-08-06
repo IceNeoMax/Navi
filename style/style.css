@@ -196,8 +196,11 @@ header a {
 /* intro  */
 #introduction-container {
     background-color: #000;
-    background-image: url('../images/background/intro-bg.jpg');
-    background-position: top center;
+    background: url('../images/background/intro-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding: 100px 0;
     overflow: hidden;
     min-height: 600px
