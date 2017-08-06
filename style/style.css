@@ -197,7 +197,7 @@ header a {
 #introduction-container {
     background-color: #000;
     background-image: url('../images/background/intro-bg.jpg');
-    background-position: top center; 
+    background-position: top center;
     padding: 100px 0;
     overflow: hidden;
     min-height: 600px
@@ -261,11 +261,6 @@ header a {
         float: none;
         margin: auto;
         margin-bottom: 50px
-    }
-}
-@media only screen and (max-width : 581px) {
-    #introduction-container {
-        margin-top: 240px;
     }
 }
 @media only screen and (max-width : 500px) {
