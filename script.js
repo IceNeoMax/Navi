@@ -9,7 +9,7 @@ function hideMenu() {
 function showDropBox() {
     let lang = document.getElementById('lang-drop-box');
     if(lang.clientHeight == 0){
-        lang.style.height = 'auto';
+        lang.style.height = '250px';
         lang.style.border = '1px solid #616161';
     }
     else {

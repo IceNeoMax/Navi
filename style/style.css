@@ -129,7 +129,7 @@ header a {
     border-radius: 1px;
     width: 50%; float: right; 
     margin-right: 5px;
-    transition: 0.5s;
+    transition: max-height, height 0.5s;
 }
 /* #lang-drop-box::-webkit-scrollbar { 
     display: none; 
