@@ -1,0 +1,192 @@
+
+@font-face {
+    font-family: ubuntuM;
+    src: url(./ubuntu-font-family-0.83/Ubuntu-M.ttf);
+}
+
+html,body {
+    margin: 0;
+    background-color: #263238;
+    font-family: ubuntuM;
+}
+button {
+    background-color: transparent;
+    border: 0 transparent;
+}
+
+button:focus {
+    border: 0 transparent;
+    outline: 0 transparent;
+}
+a {
+    text-decoration: none;
+    color: #212121
+}
+
+
+/*======*/
+#side-bar {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    left: -260px;
+    width: 250px;
+    height: 100vh;
+    background-color: #eee;
+    -webkit-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+    -moz-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+    box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+    overflow-y: auto;
+    transition: 0.5s;
+    display: none;
+}
+#side-bar ul {
+    list-style: none;
+    padding: 0
+}
+#side-bar ul li {
+    border-top: solid 0.5px #bdbdbd;
+    padding: 20px
+}
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: rgba(33,33,33,0.57);
+}
+.header-container {
+    max-width: 1195px;
+    margin: auto;
+}
+header ul {
+    list-style: none;
+    padding: 0;
+    padding-top: 15px;
+    float: left
+}
+header ul li {
+    display: inline;
+    margin: 10px;
+    font-size: 1.2rem;
+}
+header a {
+    color: #fff;
+}
+.show-menu-button {
+    margin: 25px;
+    display: none;
+}
+.hide-menu-button {
+    margin-left: 200px;
+    margin-top: 20px;
+}
+.logo {
+    display: block;
+    float: left;
+    height: 60px;
+    margin: 10px;
+}
+.lang-container {
+    float: right;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.lang-container .lang {
+    display: block;
+    float: left;
+    margin: 3px;
+    width: 30px;
+    height: 22px;
+}
+.lang-container .lang img {
+    width: 100%;
+    height: 100%;
+}
+
+.login {
+    clear: both;
+    padding-top: 5px;
+}
+.login a {
+    display: block;
+    text-align: center;
+}
+.login a span {
+    display: block;
+    float: left;
+    margin-top: 2px;
+    margin-left: 15px;
+}
+
+.menu-active {
+    color: #3244A7
+}
+/* banner  */
+.banner {
+    overflow: hidden;
+    height: 100vh;
+}
+.banner .middle {
+    width: 100vw;
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+}
+.banner .banner-logo {
+    display: block;
+    height: 230px;
+    margin: auto; 
+}
+
+
+/* reponsive  */
+@media only screen and (max-width: 1180px) {
+    header ul li {
+        font-size: 1.1rem;
+    }
+}
+@media only screen and (max-width: 1120px) {
+    header ul li {
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 1059px) {
+    header ul {
+        width: 750px;
+        padding-top: 5px;
+    }
+}
+@media only screen and (max-width: 954px) {
+    header ul {
+        width: 580px
+    }
+    .banner .banner-logo {
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+   .show-menu-button {
+        display: block;
+        float: left;
+    }
+    #side-bar {
+        display: block;
+    }
+    header ul {
+        display: none;
+    }
+    .banner .banner-logo {
+        height: 180px;
+    }
+}
+
+
+@media only screen and (max-width: 620px) {
+    .banner .banner-logo {
+        height: 150px;
+    }
+}
