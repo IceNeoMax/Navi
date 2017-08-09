@@ -15,8 +15,7 @@ import { PageView, SafeHtmlPipe } from './page/page-view.component';
       { path: 'home', component: HomeView, pathMatch: 'full'},
       { path: 'p/:langId/:pageId/:pageSlug', component: PageView, pathMatch: 'full'},
       { path: '', redirectTo: '/home', pathMatch: 'full'},
-      { path: '**', redirectTo: '/home', pathMatch: 'full'},
-      { path: 'lazy', loadChildren: './+lazy/lazy.module#LazyModule'}
+      { path: '**', redirectTo: '/home', pathMatch: 'full'}
     ])
   ],
   declarations: [ AppComponent, HomeView, PageView, SafeHtmlPipe ],

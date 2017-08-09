@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
     this._http.get('http://www.vglobal.asia/adminpanel/wp-json/wp/v2/categories').subscribe(data => {
         this.langList = data.json();
         localStorage.setItem('langList', JSON.stringify(data.json()));
+        this._getListMenu();
     });
   }
 
@@ -90,6 +91,11 @@ export class AppComponent implements OnInit {
         this.listMenu = data.json();
         localStorage.setItem('listMenu'+this.lang.langId, JSON.stringify(data.json()));
     });
+    for(let i=0; i<this.langList.length;i++){
+      this._http.get('http://www.vglobal.asia/adminpanel/wp-json/wp/v2/posts?per_page=100&categories='+this.langList[i].id+'&order=asc').subscribe(data => {
+        localStorage.setItem('listMenu'+this.langList[i].id, JSON.stringify(data.json()));
+      });
+    }
   }
 
   _setLang(id, slug){
@@ -100,7 +106,6 @@ export class AppComponent implements OnInit {
     localStorage.setItem('lang', JSON.stringify(this.lang));
     this.showDropBox();
     this._getListMenu();
-    console.log('/'+this.lang.langId+'/'+this.listMenu[0].id+'/'+this.listMenu[0].slug);
     this._router.navigate(['/p/'+this.lang.langId+'/'+this.listMenu[0].id+'/'+this.listMenu[0].slug]);
   }
 
