@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>Vglobal</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+      @import url('<link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext" rel="stylesheet">');
+
+      html,body {
+          margin: 0;
+          background-color: #000;
+          font-family: 'Ubuntu', sans-serif;
+      }
+      button {
+          background-color: transparent;
+          border: 0 transparent;
+      }
+
+      button:focus {
+          border: 0 transparent;
+          outline: 0 transparent;
+      }
+      a {
+          text-decoration: none;
+          color: #fff
+      }
+
+
+      /*======*/
+      #side-bar {
+          position: fixed;
+          z-index: 1000;
+          top: 0px;
+          left: -260px;
+          width: 250px;
+          height: 100vh;
+          background-color: rgba(33,33,33,0.8);
+          -webkit-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+          -moz-box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+          box-shadow: 4px -1px 25px -7px rgba(0,0,0,0.57);
+          overflow-y: auto;
+          transition: 0.5s;
+          display: none;
+      }
+      #side-bar::-webkit-scrollbar { 
+          display: none; 
+      }
+      #side-bar ul {
+          list-style: none;
+          padding: 0
+      }
+      #side-bar ul li {
+          border-top: solid 0.5px #616161;
+          padding: 20px
+      }
+
+
+      header {
+          position: fixed;
+          z-index: 999;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 80px;
+          background-color: rgba(33,33,33,0.57);
+      }
+      .header-container {
+          max-width: 1295px;
+          margin: auto;
+      }
+      header ul {
+          list-style: none;
+          padding: 0;
+          padding-top: 15px;
+          float: left
+      }
+      header ul li {
+          display: inline;
+          margin: 10px;
+          font-size: 1.2rem;
+      }
+      header a {
+          color: #fff;
+      }
+      .show-menu-button {
+          margin: 25px;
+          display: none;
+      }
+      .hide-menu-button {
+          margin-left: 200px;
+          margin-top: 20px;
+      }
+      .logo {
+          display: block;
+          float: left;
+          height: 60px;
+          margin: 10px;
+      }
+      .lang-container {
+          float: right;
+          padding-top: 10px;
+          overflow: hidden;
+      }
+      .lang-container button span {
+          display: block;
+          float: left;
+          margin-top: 2px;
+          margin-left: 15px;
+          font-size: 14px;
+      }
+
+      .lang-container .lang {
+          display: block;
+          float: left;
+          margin: 3px;
+          width: 30px;
+          height: 22px;
+      }
+      .lang-container .lang img {
+          width: 100%;
+          height: 100%;
+      }
+
+
+      #lang-drop-box {
+          clear:both; 
+          height: 0;
+          max-height: 320px;
+          overflow-y: scroll;
+          background-color: rgba(33,33,33,0.57); 
+          border-radius: 1px;
+          width: 50%; float: right; 
+          margin-right: 5px;
+          transition: max-height, height 0.5s;
+      }
+      /* #lang-drop-box::-webkit-scrollbar { 
+          display: none; 
+      } */
+
+      #lang-drop-box a {
+          display: block;
+          margin: auto;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          width: 30px;
+          height: 22px;
+      }
+      #lang-drop-box a img {
+          width: 100%;
+          height: 100%;
+      }
+
+      .login {
+          clear: both;
+          padding-top: 5px;
+          float: left;
+      }
+      .login a {
+          display: block;
+          text-align: center;
+          font-size: 14px;
+      }
+      .login a span {
+          display: block;
+          float: left;
+          margin-left: 15px;
+          font-weight: 100;
+      }
+
+
+      .menu-active {
+          color: #3244A7
+      }
+      /* banner  */
+      #banner {
+          overflow: hidden;
+          height: 100vh;
+      }
+      #banner .middle {
+          width: 100vw;
+          height: 100vh;
+          display: table-cell;
+          vertical-align: middle;
+      }
+      #banner .banner-logo {
+          display: block;
+          height: 70%;
+          margin: auto; 
+      }
+
+      /* reponsive  */
+      @media only screen and (max-width: 1380px) {
+          header ul li {
+              font-size: 1rem;
+          }
+      }
+      @media only screen and (max-width: 1147px) {
+          header ul li {
+              font-size: 0.9rem;
+          }
+      }
+      @media only screen and (max-width: 1088px) {
+          header ul {
+              width: 750px;
+              padding-top: 5px;
+          }
+      }
+      @media only screen and (max-width: 1042px) {
+          header ul {
+              width: 700px
+          }
+      }
+      @media only screen and (max-width: 992px) {
+          header ul {
+              width: 600px
+          }
+      }
+      @media only screen and (max-width: 892px) {
+          header ul {
+              width: 580px
+          }
+      }
+
+      @media only screen and (max-width: 873px) {
+        .show-menu-button {
+              display: block;
+              float: left;
+          }
+          #side-bar {
+              display: block;
+          }
+          header ul {
+              display: none;
+          }
+          #banner .banner-logo {
+              height: 50%;
+          }
+      }
+
+
+      @media only screen and (max-width: 620px) {
+          #banner .banner-logo {
+              height: 40%;
+          }
+      }
+
+      /* intro  */
+      #introduction-container {
+          background-color: #000;
+          background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/intro-bg.jpg') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          padding: 100px 0;
+          overflow: hidden;
+          min-height: 600px
+      }
+      #introduction-container * {
+          color: #fff
+      }
+      .intro-container {
+          width: 100%;
+          max-width: 800px;
+          margin: auto;
+          font-weight: 100;
+      }
+      .intro-content {
+          margin-top: 50px;
+          width: 49%;
+          margin-right: 1%;
+          float: left;
+          text-align: justify;
+          line-height: 150%
+      }
+      .intro-content ul {
+          padding: 0
+      }
+      .intro-content ul li {
+          margin-bottom: 40px;
+          line-height: 150%
+      }
+      .intro-thumb {
+          margin-top: 50px;
+          width: 50%;
+          float: right;
+          clear: both;
+      }
+      .intro-thumb img {
+          width: 100%;
+      }
+
+      .intro-thumb-2 {
+          float: left;
+          clear: both;
+      }
+      .intro-content-2 {
+          width: 46%;
+          margin-left: 2%;
+          float: right;
+      }
+      @media only screen and (max-width : 825px) {
+          .intro-container {
+              width: 90%;
+          }
+      }
+      @media only screen and (max-width : 650px) {
+          .intro-content {
+              width: 90%;
+              float: none;
+              text-align: justify
+          }
+          .intro-thumb {
+              width: 50%;
+              float: none;
+              margin: auto;
+              margin-bottom: 50px
+          }
+      }
+      @media only screen and (max-width : 500px) {
+          .intro-content {
+              width: 80%;
+              margin: auto;
+              float: none;
+              text-align: justify
+          }
+          .intro-thumb {
+              width: 80%;
+              float: none;
+              margin: auto;
+              margin-bottom: 50px
+          }
+      }
+
+      /*========================== wordpress ================*/
+      /* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+        white-space: nowrap;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+    </style>
+  <script type="text/javascript" src="client.js" defer></script></head>
+  <body>
+    <demo-app></demo-app>
+  </body>
+</html>
