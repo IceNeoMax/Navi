@@ -100,7 +100,8 @@ export class AppComponent implements OnInit {
     localStorage.setItem('lang', JSON.stringify(this.lang));
     this.showDropBox();
     this._getListMenu();
-    this._router.navigate(['/']);
+    console.log('/'+this.lang.langId+'/'+this.listMenu[0].id+'/'+this.listMenu[0].slug);
+    this._router.navigate(['/p/'+this.lang.langId+'/'+this.listMenu[0].id+'/'+this.listMenu[0].slug]);
   }
 
   showMenu(){

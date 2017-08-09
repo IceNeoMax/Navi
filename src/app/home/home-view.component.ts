@@ -12,7 +12,5 @@ export class HomeView implements OnInit {
   constructor(private transferState: TransferState) {}
 
   ngOnInit() {
-    this.message = this.transferState.get('message');
-    console.log("gb",JSON.parse(localStorage.getItem('langList')));
   }
 }

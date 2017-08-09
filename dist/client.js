@@ -34740,7 +34740,8 @@ var AppComponent = (function () {
         localStorage.setItem('lang', JSON.stringify(this.lang));
         this.showDropBox();
         this._getListMenu();
-        this._router.navigate(['/']);
+        console.log('/' + this.lang.langId + '/' + this.listMenu[0].id + '/' + this.listMenu[0].slug);
+        this._router.navigate(['/p/' + this.lang.langId + '/' + this.listMenu[0].id + '/' + this.listMenu[0].slug]);
     };
     AppComponent.prototype.showMenu = function () {
         var sideBar = document.getElementById('side-bar');
@@ -69185,8 +69186,6 @@ var HomeView = (function () {
         this.transferState = transferState;
     }
     HomeView.prototype.ngOnInit = function () {
-        this.message = this.transferState.get('message');
-        console.log("gb", JSON.parse(localStorage.getItem('langList')));
     };
     HomeView = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
@@ -69236,24 +69235,41 @@ var PageView = (function () {
     }
     PageView.prototype.ngOnInit = function () {
         this._getData();
-        var banner = document.getElementById('banner');
-        banner.style.backgroundImage = "url('" + this.bg + "')";
     };
     PageView.prototype._getData = function () {
         var _this = this;
         this.sub = this._route.params.subscribe(function (params) {
             var langId = params['langId'], pageId = params['pageId'];
-            if (localStorage.getItem('listMenu' + langId) != null) {
-                var listPage = JSON.parse(localStorage.getItem('listMenu' + langId));
-                _this.pageData = listPage.find(function (element) {
-                    return element.id = pageId;
-                });
-                //localStorage.setItem('logo', JSON.stringify(this.pageData.));
-            }
+            // if(localStorage.getItem('listMenu'+langId)!=null) {
+            //     let listPage = JSON.parse(localStorage.getItem('listMenu'+langId));
+            //     this.pageData = listPage.find((element)=>{
+            //         return element.id = pageId;
+            //     });
+            //     if(this.pageData.better_featured_image)
+            //         this._getbanner(this.pageData.better_featured_image.source_url);
+            //     //localStorage.setItem('logo', JSON.stringify(this.pageData.));
+            // }
             _this._http.get('http://www.vglobal.asia/adminpanel/wp-json/wp/v2/posts/' + pageId).subscribe(function (data) {
                 _this.pageData = data.json();
+                _this._getbanner(_this.pageData.better_featured_image.source_url);
+                var img = _this._getImg(_this.pageData.excerpt.rendered);
+                _this.logo = img.logo;
+                _this.logoBanner = img.logoBanner;
             });
         });
+    };
+    PageView.prototype._getbanner = function (bg) {
+        this.bg = bg;
+        var banner = document.getElementById('banner');
+        banner.style.backgroundImage = "url('" + this.bg + "')";
+    };
+    PageView.prototype._getImg = function (str) {
+        var n = str.length;
+        str = str.substr(3, n - 8);
+        str = str.replace(/&#8220;/g, '"');
+        str = str.replace(/&#8221;/g, '"');
+        var result = JSON.parse(str);
+        return result;
     };
     PageView = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
@@ -69287,7 +69303,7 @@ var SafeHtmlPipe = (function () {
 /* 75 */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\n        <div id=\"banner\" style=\"background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg') no-repeat center center fixed; \n            -webkit-background-size: cover;\n            -moz-background-size: cover;\n            -o-background-size: cover;\n            background-size: cover;\">\n            <div class=\"middle\">\n                <img class=\"banner-logo\" src=\"http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/vearth.png\" alt=\"\">\n            </div>\n        </div>\n        <div id=\"introduction-container\">\n            <div class=\"intro-container\">\n                <span [innerHTML]=\"pageData?.content.rendered | safeHtml\"></span>\n                <!-- <div class=\"intro-thumb\">\n                    <img src=\"http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/globalThumb.png\" alt=\"global\">\n                </div>\n                <div class=\"intro-content\">\n                    <ul>\n                        <li>\n                            We are a New Age App Company ready to coupled with a eco system to establish more business opportunities.\n                        </li>\n                        <li>\n                            Following the foot-step of the most successful business platform \"Alibaba\" and visonary Mr Jack Ma, VGLOBAL aims to be new rookie in app industry globally.\n                        </li>\n\n                    </ul>\n                </div>\n\n                <div class=\"intro-thumb intro-thumb-2\">\n                    <img src=\"http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/globalThumb2.png\" alt=\"global\">\n                </div>\n                <div class=\"intro-content intro-content-2\">\n                    By 2019, we should be ready to launch our first group of shares to all our shareholders.  And its possible cause, by then, we should have already a big pool of consumers and merchants. Not just that, it would also mean having a substantial amount of assets and capbilities.\n                </div> -->\n\n            </div>\n        </div>\n    </div>"
+module.exports = "<div id=\"container\">\n        <div id=\"banner\" style=\"background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg') no-repeat center center fixed; \n            -webkit-background-size: cover;\n            -moz-background-size: cover;\n            -o-background-size: cover;\n            background-size: cover;\">\n            <div class=\"middle\">\n                <img class=\"banner-logo\" [src]=\"logoBanner\" alt=\"Banner Logo\">\n            </div>\n        </div>\n        <div id=\"introduction-container\">\n            <div class=\"intro-container\">\n                <span [innerHTML]=\"pageData?.content.rendered | safeHtml\"></span>\n                <!-- <div class=\"intro-thumb\">\n                    <img src=\"http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/globalThumb.png\" alt=\"global\">\n                </div>\n                <div class=\"intro-content\">\n                    <ul>\n                        <li>\n                            We are a New Age App Company ready to coupled with a eco system to establish more business opportunities.\n                        </li>\n                        <li>\n                            Following the foot-step of the most successful business platform \"Alibaba\" and visonary Mr Jack Ma, VGLOBAL aims to be new rookie in app industry globally.\n                        </li>\n\n                    </ul>\n                </div>\n\n                <div class=\"intro-thumb intro-thumb-2\">\n                    <img src=\"http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/globalThumb2.png\" alt=\"global\">\n                </div>\n                <div class=\"intro-content intro-content-2\">\n                    By 2019, we should be ready to launch our first group of shares to all our shareholders.  And its possible cause, by then, we should have already a big pool of consumers and merchants. Not just that, it would also mean having a substantial amount of assets and capbilities.\n                </div> -->\n\n            </div>\n        </div>\n    </div>"
 
 /***/ }),
 /* 76 */

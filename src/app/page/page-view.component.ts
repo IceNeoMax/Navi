@@ -13,7 +13,9 @@ export class PageView implements OnInit {
   public message: string;
   public sub:any;
   public pageData:any;
-  public bg:String = "http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg";
+  public bg:string = "http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg";
+  public logo:string;
+  public logoBanner:string;
   constructor(
       private transferState: TransferState,
       private _route: ActivatedRoute,
@@ -22,25 +24,45 @@ export class PageView implements OnInit {
 
   ngOnInit() {
     this._getData();
-    let banner = document.getElementById('banner');
-    banner.style.backgroundImage = "url('"+this.bg+"')";
   }
   _getData(){
     this.sub = this._route.params.subscribe(params => {
         let langId = params['langId'],
             pageId = params['pageId'];
-        if(localStorage.getItem('listMenu'+langId)!=null) {
-            let listPage = JSON.parse(localStorage.getItem('listMenu'+langId));
-            this.pageData = listPage.find((element)=>{
-                return element.id = pageId;
-            });
-            //localStorage.setItem('logo', JSON.stringify(this.pageData.));
-        }
+        // if(localStorage.getItem('listMenu'+langId)!=null) {
+        //     let listPage = JSON.parse(localStorage.getItem('listMenu'+langId));
+        //     this.pageData = listPage.find((element)=>{
+        //         return element.id = pageId;
+        //     });
+        //     if(this.pageData.better_featured_image)
+        //         this._getbanner(this.pageData.better_featured_image.source_url);
+        //     //localStorage.setItem('logo', JSON.stringify(this.pageData.));
+        // }
         this._http.get('http://www.vglobal.asia/adminpanel/wp-json/wp/v2/posts/'+pageId).subscribe(data => {
             this.pageData = data.json();
+            this._getbanner(this.pageData.better_featured_image.source_url);
+            let img =  this._getImg(this.pageData.excerpt.rendered);
+            this.logo = img.logo;
+            this.logoBanner = img.logoBanner;
         });
     });   
   }
+  _getbanner(bg) {
+    this.bg = bg;
+    let banner = document.getElementById('banner');
+    banner.style.backgroundImage = "url('"+this.bg+"')";
+  }
+
+    _getImg(str:string){
+        let n = str.length;
+        str = str.substr(3,n-8);
+        str = str.replace(/&#8220;/g,'"');
+        str = str.replace(/&#8221;/g,'"');
+        let result:any = JSON.parse(str);
+        return result;
+    }
+
+
 }
 
 @Pipe({ name: 'safeHtml'})
