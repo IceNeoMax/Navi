@@ -95,6 +95,12 @@
           margin-left: 200px;
           margin-top: 20px;
       }
+      .logo-header{
+          position: fixed; 
+          z-index: 999; 
+          top: 0; 
+          left: 0
+      }
       .logo {
           display: block;
           float: left;
@@ -222,8 +228,8 @@
       }
 
       @media only screen and (max-width: 969px) {
-        .logo {
-          margin-left: 90px;
+        .logo-header {
+          left: 90px;
         }
         .show-menu-button {
               display: block;
