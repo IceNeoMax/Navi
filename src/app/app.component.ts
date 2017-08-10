@@ -15,7 +15,7 @@ import { Router } from "@angular/router";
                 <i class="material-icons" style="color: #fff">menu</i>
             </button>
 
-            <img class="logo" [src]="logo" alt="Vglobal">
+            <!-- <img class="logo" [src]="logo" alt="Vglobal"> -->
             <div class="lang-container">
                 <div class="login">
                     <a href="#!"><span>Login</span> <i class="material-icons" style="color: #fff; font-size: 16px">person_outline</i></a>
@@ -26,7 +26,7 @@ import { Router } from "@angular/router";
                 </div>
             </div>
             <div>
-                <ul>
+                <ul style="margin-left: 100px;">
                     <li *ngFor="let menu of listMenu"><a routerLinkActive="menu-active" routerLink="/p/{{lang.langId}}/{{menu.id}}/{{menu.slug}}">{{menu.title.rendered}}</a></li>
                 </ul>
             </div>
