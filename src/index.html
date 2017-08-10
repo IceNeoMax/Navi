@@ -310,31 +310,39 @@
           }
       }
       @media only screen and (max-width : 650px) {
-          .intro-content {
-              width: 90%;
-              float: none;
-              text-align: justify
-          }
-          .intro-thumb {
-              width: 50%;
-              float: none;
-              margin: auto;
-              margin-bottom: 50px
-          }
+        .intro-content {
+            width: 90%;
+            float: none !important;
+            text-align: justify
+        }
+        .intro-thumb {
+            width: 70%;
+            float: none !important;
+            margin: auto;
+            margin-bottom: 50px
+        }
+        .intro-thumb * {
+            width: 100% !important;
+            height: auto !important;
+        }
       }
       @media only screen and (max-width : 500px) {
-          .intro-content {
-              width: 80%;
-              margin: auto;
-              float: none;
-              text-align: justify
-          }
-          .intro-thumb {
-              width: 80%;
-              float: none;
-              margin: auto;
-              margin-bottom: 50px
-          }
+            .intro-content {
+                width: 80%;
+                margin: auto;
+                float: none;
+                text-align: justify
+            }
+            .intro-thumb {
+                width: 100%;
+                float: none;
+                margin: auto;
+                margin-bottom: 50px
+            }
+            .intro-thumb * {
+                width: 100% !important;
+                height: auto !important;
+            }
       }
 
       /*========================== wordpress ================*/
@@ -444,6 +452,28 @@ a img.aligncenter {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+@media only screen and (max-width : 650px) {
+    .alignleft {
+        float: none !important;
+        width: 100%;
+        height: auto
+    }
+    .alignright {
+        float: none !important;
+        width: 100%;
+        height: auto
+    }
+    a img.alignleft {
+        float: none !important;
+        width: 100%;
+        height: auto
+    }
+    a img.alignright {
+        float: none !important;
+        width: 100%;
+        height: auto
+    }
 }
     </style>
   </head>

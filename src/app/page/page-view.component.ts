@@ -44,6 +44,7 @@ export class PageView implements OnInit {
             let img =  this._getImg(this.pageData.excerpt.rendered);
             this.logo = img.logo;
             this.logoBanner = img.logoBanner;
+            localStorage.setItem('logo', img.logo);
         });
     });   
   }
