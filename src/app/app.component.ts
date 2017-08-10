@@ -26,7 +26,7 @@ import { Router } from "@angular/router";
                 </div>
             </div>
             <div>
-                <ul style="margin-left: 100px;">
+                <ul style="margin-left: 120px;">
                     <li *ngFor="let menu of listMenu"><a routerLinkActive="menu-active" routerLink="/p/{{lang.langId}}/{{menu.id}}/{{menu.slug}}">{{menu.title.rendered}}</a></li>
                 </ul>
             </div>
@@ -50,7 +50,6 @@ import { Router } from "@angular/router";
   ]
 })
 export class AppComponent implements OnInit {
-  public logo:String = "http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/vglobal.png";
   public lang:any = {
     langText: "en",
     langId: 5
@@ -69,8 +68,6 @@ export class AppComponent implements OnInit {
     else{
       this.lang = JSON.parse(localStorage.getItem('lang'));
     }
-    if(localStorage.getItem('logo')!=null)
-      this.logo = localStorage.getItem('logo').toString();
     this._getLangListData();
     this._getListMenu();
   }

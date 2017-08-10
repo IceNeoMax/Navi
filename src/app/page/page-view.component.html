@@ -1,16 +1,19 @@
 <div id="container">
-        <div id="banner" style="background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg') no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;">
-            <div class="middle">
-                <img class="banner-logo" [src]="logoBanner" alt="Banner Logo">
-            </div>
-        </div>
-        <div id="introduction-container">
-            <div class="intro-container">
-                <span [innerHTML]="pageData?.content.rendered | safeHtml"></span>
-            </div>
+    <div id="banner" style="background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;">
+        <div class="middle">
+            <img class="banner-logo" [src]="logoBanner" alt="Banner Logo">
         </div>
     </div>
+    <div id="introduction-container">
+        <div class="intro-container">
+            <span [innerHTML]="pageData?.content.rendered | safeHtml"></span>
+        </div>
+    </div>
+</div>
+<div style="position: fixed; z-index: 999; top: 0; left: 0">
+    <img class="logo" [src]="logo" alt="Vglobal">
+</div>
