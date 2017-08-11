@@ -1,4 +1,4 @@
-<div id="container">
+<div id="container" >
     <div id="banner" style="background: url('http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg') no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -16,4 +16,7 @@
 </div>
 <div class="logo-header">
     <img class="logo" [src]="logo" alt="Vglobal">
+</div>
+<div *ngIf="!isLoadding" style="position: fixed; z-index: 9090909; top: 130px; width: 100vw">
+    <div style="margin: auto" class="loader"></div>
 </div>

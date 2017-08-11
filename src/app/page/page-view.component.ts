@@ -10,6 +10,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   templateUrl: './page-view.component.html'
 })
 export class PageView implements OnInit {
+  public isLoadding = false;
   public message: string;
   public sub:any;
   public pageData:any;
@@ -29,21 +30,14 @@ export class PageView implements OnInit {
     this.sub = this._route.params.subscribe(params => {
         let langId = params['langId'],
             pageId = params['pageId'];
-        // if(localStorage.getItem('listMenu'+langId)!=null) {
-        //     let listPage = JSON.parse(localStorage.getItem('listMenu'+langId));
-        //     this.pageData = listPage.find((element)=>{
-        //         return element.id = pageId;
-        //     });
-        //     if(this.pageData.better_featured_image)
-        //         this._getbanner(this.pageData.better_featured_image.source_url);
-        //     //localStorage.setItem('logo', JSON.stringify(this.pageData.));
-        // }
+        this.isLoadding = false;
         this._http.get('http://www.vglobal.asia/adminpanel/wp-json/wp/v2/posts/'+pageId).subscribe(data => {
             this.pageData = data.json();
             this._getbanner(this.pageData.better_featured_image.source_url);
             let img =  this._getImg(this.pageData.excerpt.rendered);
             this.logo = img.logo;
             this.logoBanner = img.logoBanner;
+            this.isLoadding = true;
         });
     });   
   }
