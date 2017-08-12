@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransferState } from '../modules/transfer-state/transfer-state';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Http } from '@angular/http';
-import { Router } from "@angular/router";
+import { Router, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: 'demo-app',
@@ -70,6 +70,14 @@ export class AppComponent implements OnInit {
     }
     this._getLangListData();
     this._getListMenu();
+
+    this._router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            // window.scrollTo(0, 0)
+            this.scrollTo(document.body, 0, 300);
+        });
   }
   _getLangListData(){
     if(localStorage.getItem('langList')!=null)
@@ -104,6 +112,19 @@ export class AppComponent implements OnInit {
     this.showDropBox();
     this._getListMenu();
     this._router.navigate(['/p/'+this.lang.langId+'/'+this.listMenu[0].id+'/'+this.listMenu[0].slug]);
+  }
+
+
+  scrollTo(element, to, duration) {
+    if (duration <= 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(() => {
+      element.scrollTop = element.scrollTop + perTick;
+      if (element.scrollTop == to) return;
+      this.scrollTo(element, to, duration - 10);
+    }, 10);
   }
 
   showMenu(){
