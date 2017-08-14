@@ -16,6 +16,7 @@ export class PageView implements OnInit {
   public sub:any;
   public pageData:any;
   public nameContact:string="";
+  public phoneNumber:string="";
   public bodyContact:string="";
   public bg:string = "http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg";
   public logo:string;

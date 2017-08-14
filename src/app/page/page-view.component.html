@@ -13,8 +13,9 @@
             <span [innerHTML]="pageData?.content.rendered | safeHtml"></span>
             <div *ngIf="contact" class="contact">
                 <input type="text" placeholder="Name" style="color: #000" [value]="nameContact" (input)="nameContact = $event.target.value">
+                <input type="text" placeholder="Phone Number" style="color: #000" [value]="phoneNumber" (input)="phoneNumber = $event.target.value">
                 <textarea style="width: 100%; color: #000; margin-bottom: 30px; margin-top: 10px" placeholder="Messenge" cols="30" rows="5" [value]="bodyContact" (input)="bodyContact = $event.target.value"></textarea>
-                <a class="send-mail" href="mailto:pdnnic@gmail.com?subject=Contact - {{nameContact}}&body=Hi, My name is {{nameContact}}. {{bodyContact}}">Send</a>
+                <a class="send-mail" href="mailto:jefflow898@gmail.com?subject=Contact - {{nameContact}}&body=Hi, My name is {{nameContact}}. {{bodyContact}}">Send</a>
             </div>
         </div>
     </div>
