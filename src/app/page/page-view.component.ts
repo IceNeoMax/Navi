@@ -11,9 +11,12 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class PageView implements OnInit {
   public isLoadding = false;
+  public contact = false;
   public message: string;
   public sub:any;
   public pageData:any;
+  public nameContact:string="";
+  public bodyContact:string="";
   public bg:string = "http://www.vglobal.asia/adminpanel/wp-content/uploads/2017/08/Simulation.jpg";
   public logo:string;
   public logoBanner:string;
@@ -35,8 +38,12 @@ export class PageView implements OnInit {
             this.pageData = data.json();
             this._getbanner(this.pageData.better_featured_image.source_url);
             let img =  this._getImg(this.pageData.excerpt.rendered);
+            console.log(img);
             this.logo = img.logo;
             this.logoBanner = img.logoBanner;
+            if(img.contact)
+              this.contact = img.contact;
+            console.log(this.contact);
             this.isLoadding = true;
         });
     });   
