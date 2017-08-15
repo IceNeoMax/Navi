@@ -44,6 +44,8 @@ export class PageView implements OnInit {
             this.logoBanner = img.logoBanner;
             if(img.contact)
               this.contact = img.contact;
+            else
+              this.contact = false;
             console.log(this.contact);
             this.isLoadding = true;
         });
